@@ -1,0 +1,10 @@
+10 html tags
+html, head, body, header, main, footer, div, p, h2, button, nav, ul, li
+
+
+5 css properties
+height, width, background-color, display, flex-direction, padding, border-radius
+
+how i used JS and bootstrap
+In this project i used JS on the Reviews page, to add new div with new review after the form is filled and clicked submit
+Bootstrap i used on gallery page to insert a nice looking carousel with pictures. Also on reviews and contact page i used some form fields from bootstrap.
