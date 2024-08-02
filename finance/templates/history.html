@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+<h1>History</h1><br>
+<div class="container">
+<div class="section">
+
+    <table>
+        <thead>
+
+            <tr>
+                <th>User ID</th>
+                <th>Stock</th>
+                <th>Price</th>
+                <th>Amount</th>
+                <th>Time stamp</th>
+                <th>Operation</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for stock in union %}
+
+            <tr >
+                <td>{{stock["user_id"]}}</td>
+                <td>
+                    {{ stock["symbol"] }}
+                </td>
+                <td>
+                    {{ stock["price"] | usd}}
+                </td>
+                <td>
+                    {{stock["amount"] }}
+                </td>
+                <td>
+                    {{stock["timestamp"]}}
+                </td>
+                <td>
+                    {{stock["operation"]}}
+                </td>
+                </tr>
+
+
+            {% endfor %}
+
+            <tr>
+                <form action="/filter" method="post">
+
+                        <td><select class="form-control mx-auto " name="symbol" style="width:210px" >
+                            <option selected disabled value="">Filter by:</option>
+                                <option> Sell </option>
+                                <option> Buy </option>
+                                <option> All </option>
+                        </select></td>
+                    <td>
+                    <button class="btn btn-primary" type="submit">Filter</button>
+                </td>
+                </form>
+            </tr>
+
+
+        </tbody>
+    </table>
+</div>
+</div>
+{% endblock %}
