@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            function checkAnswer(button) {
+
+      const correctAnswer = "5";
+      const feedback = document.getElementById('feedback');
+
+      if (button.innerText === correctAnswer) {
+        button.style.backgroundColor = 'green';
+        feedback.innerHTML = '<p style="color:green">Correct!</p>';
+
+      } else {
+        button.style.backgroundColor = 'red';
+        feedback.innerHTML = '<p style="color:red">Incorrect!</p>';}
+
+        const buttons = document.querySelectorAll('#x button');
+        buttons.forEach(btn => {
+            btn.disabled = true;
+        });
+
+
+    }
+
+    function checkAnswer1() {
+      const userAnswer = document.getElementById('answer').value.trim().toLowerCase();
+      const correctAnswer = 'earth';
+      const feedback2 = document.getElementById('feedback1');
+      const field = document.getElementById('answer');
+
+      if (userAnswer === correctAnswer) {
+        feedback2.innerHTML = '<p style="color: green;">Correct!</p>';
+        answer.style.backgroundColor = 'green';
+      } else {
+        feedback2.innerHTML = '<p style="color: red;">Incorrect!</p>';
+        answer.style.backgroundColor = 'red';
+      }
+    }
+
+    function reset(){
+        const buttons = document.querySelectorAll('#x button');
+        buttons.forEach(btn => {
+            btn.disabled = false;
+            btn.style.backgroundColor="#d9edff";
+
+        });
+        document.getElementById('feedback').innerHTML="";
+
+        document.getElementById('feedback1').innerHTML = '';
+        document.getElementById('answer').style.backgroundColor="white";
+        document.getElementById('answer').value = "";
+    }
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+            <button id="reset" onClick="reset()">Reset</button>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>How many fingers humans have on a single hand?</h3>
+                <h4 id="feedback"></h4>
+                <div id="x">
+                <button onclick="checkAnswer(this)">4</button>
+                <button onclick="checkAnswer(this)">5</button>
+                <button onclick="checkAnswer(this)">6</button>
+                <button onclick="checkAnswer(this)">7</button>
+            </div>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>What is our planet's name?</h3>
+                <h4 id="feedback1"></h4>
+                <input type="text" id="answer" placeholder="Enter your answer"><button onclick="checkAnswer1()">Check answer</button>
+            </div>
+        </div>
+    </body>
+</html>
