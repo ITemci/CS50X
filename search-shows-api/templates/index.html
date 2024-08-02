@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Movies search API
+        </title>
+
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+    </head>
+
+    <body>
+
+<h1> Home </h1>
+
+   <!-- <form action="/search" method="get"> -->
+    <!-- add name="q" to input-->
+
+        <input  placeholder="Query" name="q" type="search" autocomplete="off">
+        <!-- <button type="submit">Search</button> -->
+    <!-- </form> -->
+
+    <ul></ul>
+
+
+    <script>
+
+        let input = document.querySelector('input');
+        input.addEventListener('input', async function(){
+            let response = await fetch('/search?q=' + input.value);
+            let shows = await response.text();
+            document.querySelector('ul').innerHTML = shows;
+        });
+
+        </script>
+
+    </body>
+    </html>
